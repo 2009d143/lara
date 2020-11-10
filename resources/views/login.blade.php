@@ -13,13 +13,13 @@
                 </div>
                 <div class="col-md-4 right-bg">                    
                     <form action="{{ url('/login/') }}" name="login" method="POST">
-                        @csrf
+                        @csrf                        
                         <br>
                         <label>Email: </label>
-                        <input type="email" name="email"> @if ($errors->has('email')) <p class="error">{{ $errors->first('email') }}</p>  @endif
+                        <input type="email" name="email">@if ($errors->has('email'))<p class="error">{{ $errors->first('email') }}</p>@endif
                         <br/>
                         <label>Password: </label>
-                        <input type="password" name="password">  @if ($errors->has('password')) <p class="error">{{ $errors->first('password') }}</p>  @endif
+                        <input type="password" name="password">@if ($errors->has('password'))<p class="error">{{ $errors->first('password') }}</p>@endif
                         <br/>
                         <button type="submit" class="btn btn-xs btn-info pull-right">Login</button>
                         <br>

@@ -95,7 +95,7 @@ class LoginController extends Controller
             'required'  => '* :attribute field is required.',
             'email'    => '* :attribute is invalid.'
         ]);
-        /*$postRequest = $request->all();
+        $postRequest = $request->all();
         if( (is_array($postRequest)) && (array_key_exists("_token", $postRequest)) ) {
             $email = $postRequest["email"];
             $password = $postRequest["password"];
@@ -103,10 +103,11 @@ class LoginController extends Controller
             $query->where('email', '=', $email);
             $query->where('password', '=', $password);
             $result = $query->get();
-            if($result->count() > 0) {
-                return view('welcome');
-            }
-        }  */
+            if($result->count())                
+                return view('welcome')->withLoggedin($result->count());
+            else
+                return view('login')->withLoggedin($result->count());
+        }
     }
     public function registrationAction(Request $request) {
         //Here is the shortest way of doing it.
