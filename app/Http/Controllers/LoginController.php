@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -83,6 +84,41 @@ class LoginController extends Controller
     }
 
     public function loginAction(Request $request) {
-        dd($request);
+        //Here is the shortest way of doing it.
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email'    => 'required|email',
+            'password' => 'required',
+        ],
+        [
+            'required'  => '* :attribute field is required.',
+            'email'    => '* :attribute is invalid.'
+        ]);
+        /*$postRequest = $request->all();
+        if( (is_array($postRequest)) && (array_key_exists("_token", $postRequest)) ) {
+            $email = $postRequest["email"];
+            $password = $postRequest["password"];
+            $query = DB::table('users');
+            $query->where('email', '=', $email);
+            $query->where('password', '=', $password);
+            $result = $query->get();
+            if($result->count() > 0) {
+                return view('welcome');
+            }
+        }  */
+    }
+    public function registrationAction(Request $request) {
+        //Here is the shortest way of doing it.
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email'    => 'required|email',
+            'password' => 'required',
+        ],
+        [
+            'required'  => 'The :attribute field is required.',
+            'email'    => ':attribute is invalid'
+        ]);
     }
 }

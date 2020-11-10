@@ -16,15 +16,15 @@
                         @csrf
                         <br>
                         <label>Email: </label>
-                        <input type="email" name="email">
+                        <input type="email" name="email"> @if ($errors->has('email')) <p class="error">{{ $errors->first('email') }}</p>  @endif
                         <br/>
                         <label>Password: </label>
-                        <input type="password" name="password">
+                        <input type="password" name="password">  @if ($errors->has('password')) <p class="error">{{ $errors->first('password') }}</p>  @endif
                         <br/>
                         <button type="submit" class="btn btn-xs btn-info pull-right">Login</button>
                         <br>
                         <br>
-                        <a href="#" class="btn btn-xs btn-info pull-right">Registration</a>
+                        <a href="{{url('/registration/')}}" class="btn btn-xs btn-info pull-right">Registration</a>
                     </form>
                 </div>
            </div>           

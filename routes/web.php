@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('login', 'LoginController@loginAction');
-
+Route::get('registration', 'LoginController@registrationAction');
