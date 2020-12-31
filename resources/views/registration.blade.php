@@ -11,7 +11,13 @@
            <div class="row">
                 <div class="col-md-8 left-bg">
                 </div>
-                <div class="col-md-4 right-bg">                    
+                <div class="col-md-4 right-bg">
+                @if(!empty($successMsg))
+                    <div class="alert alert-success"> {{ $successMsg }}</div>
+                @endif
+                @if(!empty($warningMsg))
+                    <div class="alert alert-danger"> {{ $warningMsg }}</div>
+                @endif
                     <form action="{{ url('/registration/') }}" name="registration" method="POST">
                         @csrf
                         <br>
@@ -29,6 +35,7 @@
                         <br/>
                         <br>
                         <button type="submit" class="btn btn-xs btn-info pull-right">Save</button>
+                        <a href="{{ route('login') }}" class="btn btn-xs btn-info pull-right">Login</a>
                     </form>
                 </div>
            </div>           

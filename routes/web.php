@@ -13,9 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('login');
+});*/
+
+Route::view('login', 'login')->name('login');
+Route::post('login', 'LoginController@loginAction');
+
+Route::view('registration', 'registration')->name('registration');
+Route::post('registration', 'LoginController@registrationAction');
+
+Route::get('/', function () {
+    return view('landing');
 });
 
-Route::post('login', 'LoginController@loginAction');
-Route::get('registration', 'LoginController@registrationAction');
+Route::get('/', 'LandingController@landingAction');
+
+Route::get('/imageupload', 'LandingController@imageuploadAction');
+Route::post('/imageupload', 'LandingController@imageuploadAction');
+
+Route::get('/admin', 'LandingController@adminAction');
+Route::post('/admin', function() {
+	echo "Test";exit;
+});
+

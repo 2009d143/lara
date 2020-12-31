@@ -23,9 +23,10 @@
                         <br/>
                         <button type="submit" class="btn btn-xs btn-info pull-right">Login</button>
                         <br>
-                        <br>
-                        <a href="{{url('/registration/')}}" class="btn btn-xs btn-info pull-right">Registration</a>
+                        <br>     
+                        <a href="{{ route('registration') }}" class="btn btn-xs btn-info pull-right">Registration</a>                   
                     </form>
+                    
                 </div>
            </div>           
         </div>
